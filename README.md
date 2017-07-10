@@ -19,5 +19,12 @@ MoActionSheet.show(withTitle: "更换头像", destructiveTitle: nil, otherTitles
     print("点击了：\(index)")
 }
 
+
+// example 2
+
+MoActionSheet.show(withTitle: "确定要退出登录？", destructiveTitle: "退出登录", otherTitles: nil) { (index) in
+    print("点击了：\(index)")
+}
+
 ```
 
