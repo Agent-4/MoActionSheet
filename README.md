@@ -7,8 +7,8 @@
 底部弹出视图，类似于微信、微博的底部弹出视图。
 ##### 效果图：
 
-<img src="https://github.com/Agent-4/MoActionSheet/blob/master/ScreenShot.png" width="240">
-<img src="https://github.com/Agent-4/MoActionSheet/blob/master/ScreenShot2.png" width="240"> 
+![example 1](https://github.com/Agent-4/MoActionSheet/blob/master/ScreenShot.png)
+![example 2](https://github.com/Agent-4/MoActionSheet/blob/master/ScreenShot2.png)
 
 ##### 用法：
 
