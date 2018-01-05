@@ -115,7 +115,9 @@ class MoActionSheet: UIView {
         contentView.addSubview(cancel)
         
         let maxY = contentView.subviews.last?.frame.maxY
-        contentView.frame = CGRect(x: 0, y: self.frame.size.height - maxY!, width: UIScreen.main.bounds.size.width, height: maxY!)
+        // iPhone X 屏幕适配
+        let theY = UIScreen.main.bounds.size.height == 812 ? self.frame.size.height - maxY! - 34 : self.frame.size.height - maxY!
+        contentView.frame = CGRect(x: 0, y: theY, width: UIScreen.main.bounds.size.width, height: maxY!)
         self.addSubview(contentView)
         
         let frame = contentView.frame
