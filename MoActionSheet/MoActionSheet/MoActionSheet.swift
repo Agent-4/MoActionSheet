@@ -24,7 +24,7 @@ class MoActionSheet: UIView {
         
         backgroundColor = UIColor.clear
         let tap = UITapGestureRecognizer()
-        tap.addTarget(self, action: #selector(TapGestureAction))
+        tap.addTarget(self, action: #selector(TapGestureAction(_:)))
         addGestureRecognizer(tap)
         
     }
@@ -33,7 +33,7 @@ class MoActionSheet: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func TapGestureAction(_ tap: UITapGestureRecognizer) {
+    @objc func TapGestureAction(_ tap: UITapGestureRecognizer) {
         if tap.location(in: tap.view).y < frame.size.height - (contentView?.frame.size.height)! {
             dismiss()
         }
@@ -76,7 +76,7 @@ class MoActionSheet: UIView {
             
             let size = title?.boundingRect(with: CGSize(width: UIScreen.main.bounds.size.width - 2*20, height: CGFloat(MAXFLOAT)),
                                            options: .usesLineFragmentOrigin,
-                                           attributes: [NSFontAttributeName: titleLabel.font],
+                                           attributes: [NSAttributedStringKey.font: titleLabel.font],
                                            context: nil).size
             titleLabel.frame = CGRect(x: 20, y: 20, width: UIScreen.main.bounds.size.width - 2*20, height: (size?.height)!)
             
@@ -141,12 +141,12 @@ class MoActionSheet: UIView {
         button.setTitle(title, for: .normal)
         button.setTitleColor(color, for: .normal)
         button.frame = CGRect(x: 0, y: y, width: UIScreen.main.bounds.size.width, height: height)
-        button.addTarget(self, action: #selector(clickAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clickAction(_:)), for: .touchUpInside)
         return button
     }
     
     // 点击
-    func clickAction(_ button: UIButton) {
+    @objc func clickAction(_ button: UIButton) {
         if (block != nil) {
             block!(Int(button.tag))
         }
